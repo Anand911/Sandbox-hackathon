@@ -1,0 +1,93 @@
+  <!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url("/static/image/bg.jpg");;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+}
+
+.topright{
+  position: absolute;
+  top: 10px;
+  left: 80%;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 90%;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.start-btn{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 17px;
+  cursor: pointer;
+}
+
+hr {
+  margin: auto;
+  width: 50%;
+}
+
+.navlink{
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+    <p><b>POMODORO</b></p> 
+  </div>
+  <div class="topright">
+      <a href="index.html" class="navlink">HOME</a>
+      <a href="about.html" class="navlink">ABOUT</a>
+      <a href= "pair.html"class="navlink">PAIR</a>
+  </div>
+  <div class="middle">
+    <h1>START YOUR POMODORO HERE</h1>
+    <hr>
+    <br>
+    <a class="start-btn" href="pomodoro.html">start</a>
+
+  </div>
+  <div class="bottomleft">
+    <p>TEAM SUDHAKSHA</p>
+  </div>
+</div>
+
+</body>
+</html>

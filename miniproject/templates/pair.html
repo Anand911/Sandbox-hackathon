@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAIR</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script>
+        let hours=0;
+        let minutes=0;
+        let seconds=0;
+
+        let dispseconds=0;
+        let dispminutes=0;
+        let disphours=0;
+        let sessions=0;
+        let current=Date();
+let interval=null;
+let status="stop";
+let prev=0;
+let session_size=30;
+function timer()
+{
+    seconds++;
+    if(seconds===60)
+      {
+          seconds=0;
+          minutes++;
+      }
+    if(minutes===60)
+      {
+          hours++;
+          minutes=0;
+          seconds=0;
+      }
+    if(seconds<10)
+       dispseconds="0"+seconds.toString();
+    else
+       dispseconds=seconds;
+    if(minutes<10)
+       dispminutes="0"+minutes.toString();
+    else
+       dispminutes=minutes;
+    if(hours<10)
+       disphours="0"+hours.toString();
+    else
+       disphours=hours; 
+    document.getElementById("timer").innerHTML=disphours+":"+dispminutes+":"+dispseconds;
+    if(minutes===session_size)
+      {
+        prev=sessions;
+        sessions++;
+          document.getElementById("num").innerHTML="PAIR="+sessions;
+          session_size=59;
+      }
+      if(minutes===59)
+           session_size=30;
+    }
+function start()
+{
+    if(status==="stop")
+       {
+        interval=window.setInterval(timer,1000);
+       } 
+}
+function stop()
+{
+        window.clearInterval(interval);
+    status="stop";
+}
+    </script>
+<style>
+    #timer{
+    width: 100%;
+    font-size: 90px;
+    text-align: center;
+    margin: 50px auto;  
+    font-family: Arial, Helvetica, sans-serif;   
+    }
+    .boxt{
+        float: left;
+    height: 300px;
+    width: 400px;
+   background-color: white;
+    border-radius: 10px;
+    padding: 10px 0px 0px;
+    align-items: center;
+}
+.sessions{
+    height: 400px;
+    width: 1000px;
+   background-color: white;
+    border-radius: 10px;
+    float: right;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+</style>
+</head>
+<body style="background-color: rgb(255, 232, 101);">
+    <div id="heading"><h1 style="padding: 70px 0px;">
+        GO TO PAIR SESSIONS
+    </h1></div>
+    <div id="pair">
+    <a style="padding: 70px 0px; font-size: 50px; text-decoration: none;" onclick="start()" href="https://tinyurl.com/pair-link" target="_blank" >GO</a>
+    </div>
+    <hr style="border-top: 1px solid black;"></hr>
+    <div>
+        <div class="boxt">
+        <div id="timer">
+            00:00:00
+        </div>
+        <button class="ok1"onclick="stop()" style="margin: auto;">END</button>
+    </div>
+        <div class="sessions">
+            <h2>PAIR SESSIONS</h2>
+            <div id="num" style="font-size: 100;">PAIR=0
+            </div>
+    </div>
+    </div>
+
+</body>
+</html>
